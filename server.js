@@ -112,7 +112,7 @@ app.post('/api/register', async (req, res) => {
     
   } catch (error) {
     console.log(error)
-    return res.json({ status: 'error', error: 'email already exists' })
+    return res.json({ status: 'error', error: 'incorrect sign up details, try again' })
   }
 })
 
