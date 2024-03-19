@@ -43,7 +43,7 @@ app.get('/api/verify', async (req, res) => {
 app.post('/api/register', async (req, res) => {
     const referringUser = await User.findOne({username: req.body.referralLink})
     const now = new Date()
-  try {
+  // try {
     if(referringUser){
       await User.updateOne({username : req.body.referralLink},{
         $push: { referred: {
@@ -110,10 +110,10 @@ app.post('/api/register', async (req, res) => {
       })
       }
     
-  } catch (error) {
-    console.log(error)
-    return res.json({ status: 'error', error: 'incorrect sign up details, try again' })
-  }
+  // } catch (error) {
+  //   console.log(error)
+  //   return res.json({ status: 'error', error: 'incorrect sign up details, try again' })
+  // }
 })
 
 app.get('/:id/refer', async(req,res)=>{
